@@ -40,9 +40,10 @@ export const VideoGrid = () => {
     md:grid-cols-2 lg:grid-cols-4">
         {videos.map(video => <div >
             <VideoCard
+                videoId = {video.id.videoId}
                 title = {video.snippet.title}
                 image = {video.snippet.thumbnails.high.url}
-                thumbImage = {video.thumbImage}
+                // thumbImage = {video.thumbImage}
                 channel = {video.snippet.channelTitle}
                 views = {video.views}
                 timestamp = {formatVideoTimestamp(video.snippet.publishedAt)}

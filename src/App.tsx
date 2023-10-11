@@ -15,7 +15,7 @@ function App(){
     <Appbar></Appbar>
       <Routes>
         <Route path={"/"} element={<VideoGrid/>}/>
-        <Route path={"/watch"} element={<Watch/>}/>
+        <Route path={"/watch/:videoId"} element={<Watch/>}/>
         <Route path={"/signin"} element={<Signin/>}/>
       </Routes>
     </BrowserRouter>

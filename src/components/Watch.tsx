@@ -1,6 +1,20 @@
+import { useParams } from "react-router-dom"
+import { VideoPlayer } from "./VideoPlayer"
+import { VideoGrid } from "./VideoGrid"
 
 export const Watch = () => {
-    return <div>
-        
-    </div>
+
+    const {videoId} = useParams<{videoId : string}>()
+    if(videoId){
+        return <div className="grid grid-cols-5">
+            <div className="col-span-3">
+                <VideoPlayer videoId={videoId}/>
+            </div>     
+            <div className="col-span-2">
+                nodfasssssssssssssssssssssssssssssssssssssssssssssssssssss
+                <VideoGrid></VideoGrid>
+            </div>
+         </div>
+    }
+    
 }

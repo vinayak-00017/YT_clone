@@ -7,7 +7,7 @@ export function VideoCard(props:any){
 
     return <div 
     className="p-3 cursor-pointer"
-    onClick={()=>navigate("/watch")}
+    onClick={()=>navigate(`/watch/${props.videoId}`)}
     >
             <img src={props.image} className="rounded-xl"/>
         <div className="grid grid-cols-12 pt-2">
