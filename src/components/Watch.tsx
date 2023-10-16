@@ -11,8 +11,12 @@ export const Watch = () => {
                 <VideoPlayer videoId={videoId}/>
             </div>     
             <div className="col-span-2">
-                nodfasssssssssssssssssssssssssssssssssssssssssssssssssssss
-                <VideoGrid></VideoGrid>
+                <div style={{
+                    display : "flex",
+                }}>
+               
+                </div>
+               
             </div>
          </div>
     }

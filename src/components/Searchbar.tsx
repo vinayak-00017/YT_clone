@@ -9,9 +9,11 @@ import SearchInput from "./SearchInput";
 
 export interface VideoItem{
     id : {
+        kind : string;
         videoId : string;
     };
     snippet : {
+        channelId : string;
         publishedAt : string;
         title : string;
         thumbnails : {

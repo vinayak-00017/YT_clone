@@ -2,6 +2,7 @@ import { useRecoilValue } from "recoil"
 import { VideoCard } from "./VideoCard"
 import { videoListState } from "../store/atoms/videoList"
 import { VideoItem } from "./Searchbar"
+import { ChannelCard } from "./ChannelCard";
 
 
 function formatVideoTimestamp(publishedAt: string): string {
@@ -35,10 +36,18 @@ function formatVideoTimestamp(publishedAt: string): string {
 export const VideoGrid = () => {
 
     const videos : VideoItem[] = useRecoilValue(videoListState)
+  
 
-    return <div className="grid grid-cols-1 
+    return <div className="flex-auto grid grid-cols-1 
     md:grid-cols-2 lg:grid-cols-4">
-        {videos.map(video => <div >
+        {videos.map((video,index) => <div key={index} >
+          {video.id.kind === "youtube#channel" ? (
+            <ChannelCard
+                channelId = {video.snippet.channelId}
+                title = {video.snippet.title}
+                image = {video.snippet.thumbnails.high.url}
+            ></ChannelCard>
+          ): (
             <VideoCard
                 videoId = {video.id.videoId}
                 title = {video.snippet.title}
@@ -48,6 +57,7 @@ export const VideoGrid = () => {
                 views = {video.views}
                 timestamp = {formatVideoTimestamp(video.snippet.publishedAt)}
             ></VideoCard>
+          )}           
         </div>)}
     </div>
 }
